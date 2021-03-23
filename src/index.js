@@ -3,7 +3,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const {
-    getTaskById
+    getTaskById,
+    getAllTasks
 } = require('./controllers/GerenciadorTarefas.controller');
 
 const app = express();
@@ -16,8 +17,8 @@ app.use(bodyParser.json());
  * 
  * Rotas da api
  * 
- * Listar todas as tarefas - get
  * listar uma tarefa pelo id - get
+ * Listar todas as tarefas - get
  * cadastrar uma tarefa - post
  * atualizar uma tarefa - put
  * remover uma tarefa - delete
@@ -25,11 +26,9 @@ app.use(bodyParser.json());
  * 
  */
 
-app.get('/gerenciador-tarefas', (request, response) => {
-    response.status(501).json({ erro: 'Não implementado' });
-});
+ app.get('/gerenciador-tarefas/:id', getTaskById);
 
-app.get('/gerenciador-tarefas/:id', getTaskById);
+app.get('/gerenciador-tarefas', getAllTasks);
 
 app.post('/gerenciador-tarefas', (request, response) => {
     response.status(501).json({ erro: 'Não implementado' });
