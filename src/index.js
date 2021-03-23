@@ -2,6 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+const {
+    getTaskById
+} = require('./controllers/GerenciadorTarefas.controller');
+
 const app = express();
 const PORT = 3001;
 
@@ -25,10 +29,23 @@ app.get('/gerenciador-tarefas', (request, response) => {
     response.status(501).json({ erro: 'Não implementado' });
 });
 
-app.get('/gerenciador-tarefas/:id', (request, response) => {
+app.get('/gerenciador-tarefas/:id', getTaskById);
+
+app.post('/gerenciador-tarefas', (request, response) => {
     response.status(501).json({ erro: 'Não implementado' });
 });
 
+app.put('/gerenciador-tarefas/:id', (request, response) => {
+    response.status(501).json({ erro: 'Não implementado' });
+});
+
+app.delete('/gerenciador-tarefas/:id', (request, response) => {
+    response.status(501).json({ erro: 'Não implementado' });
+});
+
+app.put('/gerenciador-tarefas/:id/concluir', (request, response) => {
+    response.status(501).json({ erro: 'Não implementado' });
+});
 
 app.listen(PORT, () => {
     console.log(`Servidor inicializado na porta : ${PORT}`);
