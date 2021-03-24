@@ -1,0 +1,3 @@
+[submodule "gerenciador-tasks"]
+	path = gerenciador-tasks
+	url = https://github.com/AndersonAslap/gerenciador-de-tarefas.git
